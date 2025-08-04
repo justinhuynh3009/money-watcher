@@ -10,8 +10,8 @@ deployment:
     - composer install --no-dev --optimize-autoloader
 
     # Run build command for Inertia
+    - export PATH=$HOME/.nvm/versions/node/v18.20.7/bin:$PATH
     - npm run build
-
     - cp -a public/build/. ../../money-watcher.9nohp.org/build
 
     # Copy .env if not exists (optional)
