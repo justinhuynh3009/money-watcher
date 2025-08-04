@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ isset($title) ? $title.' - '.config('app.name') : config('app.name') }}</title>
+    <title>{{ isset($title) ? $title . ' - ' . config('app.name') : config('app.name') }}</title>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/robsontenorio/mary@0.44.2/libs/currency/currency.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/robsontenorio/mary@0.44.2/libs/currency/currency.js">
+    </script>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+
 <body class="min-h-screen font-sans antialiased bg-base-200">
 
     {{-- NAVBAR mobile only --}}
@@ -29,14 +32,14 @@
         {{-- SIDEBAR --}}
         {{-- <x-slot:sidebar drawer="main-drawer" collapsible class="bg-base-100 lg:bg-inherit"> --}}
 
-            {{-- BRAND --}}
-            {{-- <x-app-brand class="px-5 pt-4" /> --}}
+        {{-- BRAND --}}
+        {{-- <x-app-brand class="px-5 pt-4" /> --}}
 
-            {{-- MENU --}}
-            {{-- <x-menu activate-by-route> --}}
+        {{-- MENU --}}
+        {{-- <x-menu activate-by-route> --}}
 
-                {{-- User --}}
-                {{-- @if($user = auth()->user())
+        {{-- User --}}
+        {{-- @if ($user = auth()->user())
                     <x-menu-separator />
 
                     <x-list-item :item="$user" value="name" sub-value="email" no-separator no-hover class="-mx-2 !-my-2 rounded">
@@ -59,13 +62,21 @@
 
         {{-- The `$slot` goes here --}}
         <x-slot:content>
-        <x-theme-toggle class="btn btn-circle" />
+            <x-theme-toggle class="btn btn-circle" />
 
             {{ $slot }}
+
+            <div class="fixed bottom-0 mb-4 z-50 flex gap-2 justify-center w-full mx-auto">
+                <x-button icon="o-user" class="btn-circle btn-outline" />
+                <x-button icon="o-plus" class="btn-circle btn-outline" link="{{ route('entry-form') }}" />
+                <x-button icon="o-user" class="btn-circle btn-outline" />
+            </div>
         </x-slot:content>
+
     </x-main>
 
     {{--  TOAST area --}}
     <x-toast />
 </body>
+
 </html>

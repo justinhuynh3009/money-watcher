@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Number;
@@ -21,6 +22,7 @@ class Transaction extends Model
 
     protected $appends = [
         'display_amount',
+        'format_date',
     ];
 
     /**
@@ -31,6 +33,16 @@ class Transaction extends Model
     public function getDisplayAmountAttribute()
     {
         return Number::currency($this->amount, 'VND');
+    }
+
+    /**
+     * Get the formatted date.
+     *
+     * @return string
+     */
+    public function getFormatDateAttribute()
+    {
+        return Carbon::parse($this->date)->format('d/m/Y');
     }
 
     /**

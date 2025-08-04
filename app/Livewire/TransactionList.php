@@ -16,8 +16,10 @@ class TransactionList extends Component
         $this->transactions = Transaction::with('category')
             ->select('id', 'uuid', 'category_id', 'description', 'amount', 'date')
             ->where('user_id', auth()->id())
+            ->orderBy('date', 'desc')
             ->get()
-            ->append('display_amount')
+            ->append('display_amount', 'format_date')
+            ->groupBy('format_date')
             ->toArray();
 
         info(print_r($this->transactions, true));
