@@ -65,12 +65,6 @@
             <x-theme-toggle class="btn btn-circle" />
 
             {{ $slot }}
-
-            <div class="fixed bottom-0 mb-4 z-50 flex gap-2 justify-center w-full mx-auto">
-                <x-button icon="o-user" class="btn-circle btn-outline" />
-                <x-button icon="o-plus" class="btn-circle btn-outline" link="{{ route('entry-form') }}" />
-                <x-button icon="o-user" class="btn-circle btn-outline" />
-            </div>
         </x-slot:content>
 
     </x-main>
