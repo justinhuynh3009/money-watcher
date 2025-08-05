@@ -6,11 +6,11 @@
 
         <div>
             <span class="text-green-700">
-                {{ Number::currency($totalDeposits, 'VND', 0) }}
+                {{ $totalDeposits }}
             </span>
             <span class="mx-2">|</span>
             <span class="text-red-700">
-                {{ Number::currency($totalWithdrawals, 'VND', 0) }}
+                {{ $totalWithdrawals }}
             </span>
         </div>
     </div>

@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Transaction;
+use Illuminate\Support\Number;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
 
@@ -28,10 +29,11 @@ class TransactionList extends Component
             ->groupBy('format_date')
             ->toArray();
 
-        $this->totalWithdrawals = Transaction::where('user_id', auth()->id())
+        $totalWithdrawalsAmount = Transaction::where('user_id', auth()->id())
             ->sum('amount');
 
-        info(print_r($this->transactions, true));
+        $this->totalWithdrawals = Number::currency($totalWithdrawalsAmount, 'VND');
+        $this->totalDeposits = Number::currency(0, 'VND');
     }
 
     public function render()
