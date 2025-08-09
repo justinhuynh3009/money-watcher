@@ -20,6 +20,7 @@
         "laravel/tinker": "^2.10.1",
         "livewire/livewire": "^3.6",
         "owenvoke/blade-fontawesome": "^2.9",
+        "postare/blade-mdi": "^1.1",
         "robsontenorio/mary": "^2.4"
     },
     "require-dev": {
