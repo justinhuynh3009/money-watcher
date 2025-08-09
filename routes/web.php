@@ -3,6 +3,7 @@
 use App\Livewire\Auth\LoginPage;
 use App\Livewire\Auth\RegisterPage;
 use App\Livewire\MoneyEntryForm;
+use App\Livewire\Profile;
 use App\Livewire\TransactionList;
 use App\Livewire\Welcome;
 use Illuminate\Support\Facades\Route;
@@ -19,4 +20,7 @@ Route::middleware(['auth'])->group(function () {
         ->name('entry-form');
     Route::get('/transactions', TransactionList::class)
         ->name('transactions');
+
+    Route::get('/profile', Profile::class)
+        ->name('profile');
 });

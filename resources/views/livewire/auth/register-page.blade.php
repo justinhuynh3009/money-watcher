@@ -10,8 +10,8 @@
                 account? Login</a>
         </div>
 
-        <x-slot:actions>
-            <x-button label="Register" class="btn-primary" type="submit" spinner="register" />
+        <x-slot:actions class="mx-auto w-full">
+            <x-button label="Register" class="btn-primary w-full" type="submit" spinner="register" />
         </x-slot:actions>
     </x-form>
 </div>

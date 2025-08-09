@@ -4,9 +4,11 @@ namespace App\Livewire\Auth;
 
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Mary\Traits\Toast;
 
+#[Layout('components.layouts.auth')]
 class RegisterPage extends Component
 {
     use Toast;

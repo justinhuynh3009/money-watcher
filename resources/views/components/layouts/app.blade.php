@@ -133,7 +133,7 @@
                         Settings
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
-                    <button data-tooltip-target="tooltip-profile" type="button"
+                    <button data-tooltip-target="tooltip-profile" type="button" wire:navigate href="{{ route('profile') }}"
                         class="inline-flex flex-col items-center justify-center px-5 rounded-e-full hover:bg-gray-50 dark:hover:bg-gray-800 group">
                         <svg class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"

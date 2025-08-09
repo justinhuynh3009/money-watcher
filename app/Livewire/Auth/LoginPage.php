@@ -3,9 +3,11 @@
 namespace App\Livewire\Auth;
 
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Mary\Traits\Toast;
 
+#[Layout('components.layouts.auth')]
 class LoginPage extends Component
 {
     use Toast;
