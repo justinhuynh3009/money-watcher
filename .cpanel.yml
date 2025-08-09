@@ -7,12 +7,14 @@ deployment:
     - cd ~/repositories/money-watcher
 
     # Install PHP dependencies
+    - echo "Installing PHP dependencies..."
     - composer install --no-dev --optimize-autoloader
+    - echo "PHP dependencies installed."
 
     # Run build command for Inertia
-    - export PATH=$HOME/.nvm/versions/node/v18.20.7/bin:$PATH
-    - npm run build
-    - cp -a public/build/. ../../money-watcher.9nohp.org/build
+    # - export PATH=$HOME/.nvm/versions/node/v18.20.7/bin:$PATH
+    # - npm run build
+    # - cp -a public/build/. ../../money-watcher.9nohp.org/build
 
     # Copy .env if not exists (optional)
     # - [ ! -f .env ] && cp .env.example .env
@@ -25,12 +27,24 @@ deployment:
     # - chown -R $USER:$USER .
 
     # Migrate database
+    - echo "Running database migrations..."
     - php artisan migrate --force
+
+    # Seed database (optional)
+    - echo "Seeding database..."
+    - php artisan db:seed --force
+
+    # Clear icon cache
+    - echo "Clearing cache..."
+    - php artisan icons:clear
 
     # Clear cache
     - php artisan config:clear
     - php artisan route:clear
     - php artisan view:clear
+
+    # Cache icons
+    - php artisan icons:cache
 
     # Set permissions for storage and cache
     # - chmod -R 775 storage bootstrap/cache

@@ -1,8 +1,8 @@
 <div class="max-w-md mx-auto">
     <x-form wire:submit="save">
-        <x-input label="Amount" wire:model="amount" prefix="VND" money />
-
         <x-select-group label="Category" :options="$categories" wire:model="selectedCategory" />
+
+        <x-input label="Amount" wire:model="amount" prefix="VND" money />
 
         <x-datetime label="Datetime" wire:model="date" type="datetime-local" />
 

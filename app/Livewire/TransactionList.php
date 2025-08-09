@@ -18,6 +18,21 @@ class TransactionList extends Component
     #[Locked]
     public $totalDeposits = 0;
 
+    #[Locked]
+    public $selectedRange = 'this_month';
+
+    #[Locked]
+    public $timeRanges = [
+        [
+            'name' => 'This Month',
+            'id' => 'this_month',
+        ],
+        [
+            'name' => 'Last Month',
+            'id' => 'last_month',
+        ],
+    ];
+
     public function mount()
     {
         $this->transactions = Transaction::with('category')
